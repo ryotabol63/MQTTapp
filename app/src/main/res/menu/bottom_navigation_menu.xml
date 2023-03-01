@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Home"
+        android:enabled="true"
+        android:icon="@drawable/baseline_home_24"
+        android:title="@string/Home"/>
+    <item
+        android:id="@+id/MQTT"
+        android:enabled="true"
+        android:icon="@drawable/baseline_connect_without_contact_24"
+        android:title="@string/mqtt"/>
+    <item
+        android:id="@+id/Links"
+        android:enabled="true"
+        android:icon="@drawable/baseline_link_24"
+        android:title="@string/Links"/>
+
+</menu>

@@ -5,4 +5,5 @@
     <string name="Home">Home</string>
     <string name="mqtt">MQTT</string>
     <string name="Links">Links</string>
+    <string name="hint">hint</string>
 </resources>

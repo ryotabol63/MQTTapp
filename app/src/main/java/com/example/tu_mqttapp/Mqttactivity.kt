@@ -7,7 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.util.ArrayList
+import java.util.*
 
 class Mqttactivity : AppCompatActivity() {
 
@@ -23,17 +23,20 @@ class Mqttactivity : AppCompatActivity() {
             LinearLayoutManager(this)
         recyclerView.layoutManager = rLayoutManager
         val dataSet: ArrayList<String> = arrayListOf()
-        val inputadapter = MyAdapter(dataSet)
-        recyclerView.adapter = inputadapter
+        var i = 0
+        while (i < 20) {
+            val str: String = java.lang.String.format(Locale.US, "Data_0%d", i)
+            dataSet.add(str)
+            i++
+        }
+
+
+
+        recyclerView.adapter = MyAdapter(dataSet)
 
         findViewById<Button>(R.id.button).setOnClickListener{
-            val textbox = findViewById<EditText>(R.id.edit_text)
-            val inputtext = textbox.text.toString()
-            //for when need to jump to new activity
-            //val intent = Intent(applicationContext,MainActivity::class.java)
-            //startActivity(intent)
-            dataSet.add(inputtext)
-            inputadapter.notifyItemInserted(dataSet.lastIndex)
+            val intent = Intent(applicationContext,MainActivity::class.java)
+            startActivity(intent)
         }
 
     }

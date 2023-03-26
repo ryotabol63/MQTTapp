@@ -3,6 +3,7 @@ package com.example.tu_mqttapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ class Mqttactivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val topic = intent.getStringExtra("topic")
         setContentView(R.layout.activity_mqtt)
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         // use this setting to improve performance if you know that changes
@@ -23,6 +25,7 @@ class Mqttactivity : AppCompatActivity() {
             LinearLayoutManager(this)
         recyclerView.layoutManager = rLayoutManager
         val dataSet: ArrayList<String> = arrayListOf()
+        dataSet.add(("Topic:$topic"))
         var i = 0
         while (i < 20) {
             val str: String = java.lang.String.format(Locale.US, "Data_0%d", i)
@@ -34,9 +37,8 @@ class Mqttactivity : AppCompatActivity() {
 
         recyclerView.adapter = MyAdapter(dataSet)
 
-        findViewById<Button>(R.id.button).setOnClickListener{
-            val intent = Intent(applicationContext,MainActivity::class.java)
-            startActivity(intent)
+        findViewById<Button>(R.id.button).setOnClickListener {
+            finish()
         }
 
     }

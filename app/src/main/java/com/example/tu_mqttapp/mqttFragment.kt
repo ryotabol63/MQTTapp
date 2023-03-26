@@ -39,8 +39,10 @@ class mqttFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_mqtt, container, false)
         val subscribebutton = view.findViewById<Button>(R.id.mqttstart_button)
+        val topic = "testtopic"
         subscribebutton?.setOnClickListener {
             val intent = Intent(context, Mqttactivity::class.java)
+            intent.putExtra("topic" ,topic)
             startActivity(intent)
         }
         return view

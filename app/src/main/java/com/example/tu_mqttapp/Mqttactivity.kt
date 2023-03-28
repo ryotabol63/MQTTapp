@@ -34,11 +34,13 @@ class Mqttactivity : AppCompatActivity() {
         }
 
 
-
-        recyclerView.adapter = MyAdapter(dataSet)
+        val mqttadapter = MyAdapter(dataSet)
+        recyclerView.adapter = mqttadapter
 
         findViewById<Button>(R.id.button).setOnClickListener {
-            finish()
+            val hoge = "hoge"
+            dataSet.add(hoge)
+            mqttadapter.notifyItemInserted(dataSet.lastIndex)
         }
 
     }
